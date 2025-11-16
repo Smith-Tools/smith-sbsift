@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/master.swiftdeps"
+  },
+  "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/Tests/sbsiftTests/BuildOutputParserTests.swift": {
+    "dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/BuildOutputParserTests.d",
+    "object": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/BuildOutputParserTests.swift.o",
+    "swiftmodule": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/BuildOutputParserTests~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/BuildOutputParserTests.swiftdeps",
+    "diagnostics": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/BuildOutputParserTests.dia"
+  },
+  "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/Tests/sbsiftTests/sbsiftTests.swift": {
+    "dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/sbsiftTests.d",
+    "object": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/sbsiftTests.swift.o",
+    "swiftmodule": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/sbsiftTests~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/sbsiftTests.swiftdeps",
+    "diagnostics": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSiftTests.build/sbsiftTests.dia"
+  }
+}

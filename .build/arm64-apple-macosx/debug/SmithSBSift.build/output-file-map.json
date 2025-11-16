@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSift.build/master.swiftdeps"
+  },
+  "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/Sources/SmithSBSift/SmithSBSift.swift": {
+    "dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSift.build/SmithSBSift.d",
+    "object": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSift.build/SmithSBSift.swift.o",
+    "swiftmodule": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSift.build/SmithSBSift~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSift.build/SmithSBSift.swiftdeps",
+    "diagnostics": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/SmithSBSift.build/SmithSBSift.dia"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith_sbsiftPackageTests.build/master.swiftdeps"
+  },
+  "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith-sbsiftPackageTests.derived/runner.swift": {
+    "dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith_sbsiftPackageTests.build/runner.d",
+    "object": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith_sbsiftPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith_sbsiftPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith_sbsiftPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Volumes/Plutonian/_Developer/Smith Tools/smith-sbsift/.build/arm64-apple-macosx/debug/smith_sbsiftPackageTests.build/runner.dia"
+  }
+}

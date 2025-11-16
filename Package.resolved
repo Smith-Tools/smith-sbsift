@@ -1,0 +1,24 @@
+{
+  "originHash" : "1fd4b73ffd0d09202ef6a12a9cc058b997f2d7555344dbb83fca46a3ab883c79",
+  "pins" : [
+    {
+      "identity" : "smith-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Smith-Tools/smith-core",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c56717d6f57e2de169439ba9661f1e702af6b303"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser",
+      "state" : {
+        "revision" : "cdd0ef3755280949551dc26dee5de9ddeda89f54",
+        "version" : "1.6.2"
+      }
+    }
+  ],
+  "version" : 3
+}
