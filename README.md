@@ -31,6 +31,38 @@ swift build
 ```
 
 ### **Basic Usage**
+
+#### 🍺 Homebrew (Recommended)
+
+```bash
+# Add the custom tap
+brew tap elkraneo/tap
+
+# Install from main branch (latest features)
+brew install --HEAD elkraneo/tap/sbsift
+
+# Or use the install script (if tap doesn't work)
+curl -sSL https://raw.githubusercontent.com/elkraneo/sbsift/main/install.sh | bash
+```
+
+#### 🔧 From Source
+
+```bash
+git clone https://github.com/elkraneo/sbsift.git
+cd sbsift
+swift build -c release
+cp .build/release/sbsift /usr/local/bin/
+```
+
+#### ⚡ Quick Install Script
+
+```bash
+curl -sSL https://raw.githubusercontent.com/elkraneo/sbsift/main/install.sh | bash
+```
+
+**Note**: Since sbsift is not yet in the official Homebrew core, use the custom tap as shown above.
+
+### Basic Usage
 ```bash
 # Parse Swift build output
 swift build 2>&1 | smith-sbsift parse
