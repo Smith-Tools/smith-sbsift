@@ -1,0 +1,37 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+
+# Xcode
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+DerivedData/
+
+# Build artifacts
+*.o
+*.d
+*.dia
+*.swiftdeps
+*.swiftmodule
+*.swiftdoc
+*.abi.json
+*.swiftsourceinfo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
