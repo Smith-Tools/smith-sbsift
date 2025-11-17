@@ -24,7 +24,7 @@ struct SmithSBSift: ParsableCommand {
           smith-sbsift --hang-detection
           swift test | smith-sbsift parse --format summary
         """,
-        version: "2.0.0",
+        version: "2.1.0",
         subcommands: [
             Analyze.self,
             Parse.self,
