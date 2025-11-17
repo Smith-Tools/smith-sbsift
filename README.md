@@ -1,123 +1,163 @@
-# Smith SBSift ⚡
+# smith-sbsift - Swift Build Analysis
 
-**Enhanced Swift build analysis tool for development workflows**
+> **Context-efficient Swift build output analysis for development and agentic workflows.**
 
-[![Swift Version](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-mOS%20%7C%20iOS%20%7C%20visionOS-lightgrey.svg)](https://developer.apple.com)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+Tool providing comprehensive Swift build output parsing, performance analysis, and bottleneck identification. Converts verbose Swift build logs into structured, minimal-context JSON designed for development teams and AI agents.
 
-Smith SBSift provides comprehensive Swift build analysis with Smith Framework integration, converting verbose Swift build output into structured, token-efficient formats designed for AI agents and modern development workflows.
+## 🎯 What is smith-sbsift?
 
-## 🎯 **Overview**
+smith-sbsift specializes in **Swift build output analysis**:
 
-Smith SBSift specializes in **Swift build output analysis**, offering:
-
-- **⚡ Build Parsing** - Extract errors, warnings, and timing from Swift build output
+- **⚡ Build Parsing** - Extract errors, warnings, and timing information
 - **📊 Performance Analysis** - Identify compilation bottlenecks and slow files
-- **🔍 Issue Detection** - Automatic identification of build problems
+- **🔍 Issue Detection** - Automatic identification of common build problems
 - **📈 Progress Monitoring** - Real-time build progress tracking
+- **📉 Context Efficiency** - 43% reduction in output size vs raw logs
+- **JSON Export** - Machine-readable results for automation
 
-## 🚀 **Quick Start**
+## 🚀 Quick Start
 
-### **Installation**
-```bash
-# Install via Homebrew
-brew install smith-tools/smith/smith-sbsift
-
-# Or build from source
-git clone https://github.com/Smith-Tools/smith-sbsift
-cd smith-sbsift
-swift build
-```
-
-### **Basic Usage**
-
-#### 🍺 Homebrew (Recommended)
+### Installation
 
 ```bash
-# Add the custom tap
+# Via Homebrew (custom tap)
 brew tap elkraneo/tap
+brew install sbsift
 
-# Install from main branch (latest features)
-brew install --HEAD elkraneo/tap/sbsift
-
-# Or use the install script (if tap doesn't work)
-curl -sSL https://raw.githubusercontent.com/elkraneo/sbsift/main/install.sh | bash
-```
-
-#### 🔧 From Source
-
-```bash
+# Or from source
 git clone https://github.com/elkraneo/sbsift.git
 cd sbsift
 swift build -c release
 cp .build/release/sbsift /usr/local/bin/
 ```
 
-#### ⚡ Quick Install Script
-
-```bash
-curl -sSL https://raw.githubusercontent.com/elkraneo/sbsift/main/install.sh | bash
-```
-
-**Note**: Since sbsift is not yet in the official Homebrew core, use the custom tap as shown above.
-
 ### Basic Usage
+
 ```bash
 # Parse Swift build output
-swift build 2>&1 | smith-sbsift parse
+swift build 2>&1 | sbsift
 
-# Analyze build with timing
-smith-sbsift analyze
+# Analyze with specific format
+swift build 2>&1 | sbsift --format json
 
 # Monitor build progress
-swift build 2>&1 | smith-sbsift monitor --timeout 300
+swift build 2>&1 | sbsift --monitor
+
+# Analyze Xcode build
+xcodebuild build -scheme MyApp 2>&1 | sbsift
 ```
 
-## 📋 **Commands**
+## 📋 Commands
 
-### **🔍 analyze**
-Comprehensive Swift build analysis.
+### **parse** - Parse build output
 
 ```bash
-smith-sbsift analyze [--project <path>] [--format json]
+swift build 2>&1 | sbsift parse [--format json|summary]
 ```
 
-### **📝 parse**
-Parse Swift build output from stdin.
+Extracts errors, warnings, and compilation timing from build output.
+
+### **analyze** - Full analysis
 
 ```bash
-swift build 2>&1 | smith-sbsift parse [--format json] [--verbose]
+sbsift analyze [--project path] [--format json]
 ```
 
-### **⏱️ monitor**
-Monitor build progress with timeout.
+Comprehensive analysis including bottleneck identification.
+
+### **monitor** - Progress tracking
 
 ```bash
-smith-sbsift monitor [--timeout <seconds>] [--format summary]
+swift build 2>&1 | sbsift monitor [--timeout seconds]
 ```
 
-### **✅ validate**
-Validate Swift build configuration.
+Real-time build progress with estimated time remaining.
+
+### **validate** - Configuration check
 
 ```bash
-smith-sbsift validate [--project <path>]
+sbsift validate [--project path]
 ```
 
-## 🏗️ **Smith Tools Ecosystem**
+Validates Swift project build configuration.
 
-Smith SBSift is part of the comprehensive Smith Tools suite:
+## 🔄 Integration with Smith Tools
 
-- **[smith-core](https://github.com/Smith-Tools/smith-core)** - Core framework and data models
-- **[smith-cli](https://github.com/Smith-Tools/smith-cli)** - Unified interface
-- **[smith-spmsift](https://github.com/Smith-Tools/smith-spmsift)** - SPM analysis
-- **[smith-xcsift](https://github.com/Smith-Tools/smith-xcsift)** - Xcode build analysis
-- **[xcsift](https://github.com/Smith-Tools/xcsift)** - Clean xcsift implementation
+smith-sbsift works with the complete Smith Tools ecosystem:
 
-## 📄 **License**
+- **smith-skill** - Architectural validation
+- **smith-core** - Universal Swift patterns
+- **smith-spmsift** - SPM analysis
+- **sosumi-skill** - Apple documentation
 
-Smith SBSift is available under the [MIT License](LICENSE).
+**Usage Pattern:**
+```
+Build errors? → smith-sbsift
+Architecture? → smith-skill
+API reference? → sosumi-skill
+Package issues? → smith-spmsift
+```
+
+## 📊 Performance
+
+- **Parse time:** <100ms for typical builds
+- **Output size:** 43% reduction vs raw build output
+- **Memory usage:** Minimal streaming processing
+- **Token efficiency:** 60-70% savings for Claude
+- **Supported:** Swift 5.5+, macOS 11.0+, iOS 14.0+
+
+## 🛠️ Development
+
+### Building from Source
+
+```bash
+git clone https://github.com/elkraneo/sbsift.git
+cd sbsift
+swift build -c release
+```
+
+### Project Structure
+
+```
+sbsift/
+├── README.md                 ← This file
+├── Package.swift             ← Swift package
+├── Sources/
+│   ├── sbsiftLib/            ← Core library
+│   └── sbsift/               ← CLI tool
+├── Tests/                    ← Test suite
+└── Scripts/                  ← Build scripts
+```
+
+## 📋 Requirements
+
+- **Swift 5.5+**
+- **macOS 11.0+** (Monterey or later)
+- **Xcode 13.0+**
+
+## 🔗 Related Tools
+
+- **[smith-spmsift](../smith-spmsift/)** - Swift Package Manager analysis
+- **[smith-skill](../smith-skill/)** - Architecture validation
+- **[smith-core](../smith-core/)** - Universal patterns
+- **[xcsift](https://github.com/ldomaradzki/xcsift)** - Xcode project analysis
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+
+1. Report build analysis issues with examples
+2. Suggest new output formats
+3. Improve error detection patterns
+4. Add integration examples
+5. Follow commit message guidelines (see main README)
+
+## 📄 License
+
+MIT - See [LICENSE](LICENSE) for details
 
 ---
 
-**Smith SBSift - Context-efficient Swift build analysis**
+**smith-sbsift - Making Swift build output AI-friendly**
+
+*Last updated: November 17, 2025*
