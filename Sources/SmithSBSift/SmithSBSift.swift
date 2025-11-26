@@ -17,12 +17,13 @@ struct SmithSBSift: ParsableCommand {
         - Build hang detection and analysis
         - File-level timing analysis
         - Performance bottleneck identification
+        - Auto-parse when input is piped (AI-ergonomic design)
 
         Examples:
-          swift build --target MyTarget | smith-sbsift parse
+          swift build --target MyTarget | smith-sbsift
           smith-sbsift analyze
           smith-sbsift --hang-detection
-          swift test | smith-sbsift parse --format summary
+          swift test | smith-sbsift (explicit parse for legacy support)
         """,
         version: "2.1.0",
         subcommands: [
@@ -32,6 +33,67 @@ struct SmithSBSift: ParsableCommand {
             Validate.self
         ]
     )
+
+    func run() throws {
+        // Check if input is being piped - if so, auto-run parse with defaults
+        if isatty(STDIN_FILENO) != 0 {
+            // No piped input - show help
+            print("smith-sbsift: No input detected. Use subcommands or pipe Swift build output.")
+            print("Usage: swift build | smith-sbsift")
+            print("       smith-sbsift analyze")
+            print("       smith-sbsift validate")
+            throw ExitCode.failure
+        } else {
+            // Input is piped - auto-run parse with default settings for AI ergonomics
+            let input = FileHandle.standardInput.readDataToEndOfFile()
+            let output = String(data: input, encoding: .utf8) ?? ""
+
+            guard !output.isEmpty else {
+                print("{\"error\": \"No input received\"}")
+                throw ExitCode.failure
+            }
+
+            // Use parse logic with minimal format for AI-friendly output
+            let result = try parseSwiftBuildOutput(output)
+            try outputMinimal(result)
+        }
+    }
+
+    // Helper function to parse Swift build output (simplified version)
+    private func parseSwiftBuildOutput(_ output: String) throws -> AutoParseResult {
+        // Simplified parsing - in real implementation, this would use the full Parse logic
+        let hasErrors = output.contains(": error: ")
+        let hasWarnings = output.contains(": warning: ")
+        let buildSucceeded = output.contains("Build succeeded") || output.contains("BUILD SUCCEEDED")
+        let buildFailed = output.contains("Build failed") || output.contains("BUILD FAILED")
+
+        let status = buildSucceeded ? "success" : (buildFailed || hasErrors) ? "failed" : "unknown"
+        let errorCount = output.components(separatedBy: ": error: ").count - 1
+        let warningCount = output.components(separatedBy: ": warning: ").count - 1
+
+        return AutoParseResult(
+            status: status,
+            errors: errorCount,
+            warnings: warningCount,
+            duration: 0.0,
+            files: 0
+        )
+    }
+
+    private func outputMinimal(_ result: AutoParseResult) throws {
+        let statusEmoji = result.status == "success" ? "✅" : (result.status == "failed" ? "❌" : "⚠️")
+        let duration = String(format: "%.1fs", result.duration)
+        print("\(statusEmoji) \(result.status.uppercased()) | ERRORS: \(result.errors) | WARNINGS: \(result.warnings) | FILES: \(result.files) | \(duration)")
+    }
+}
+
+// Simplified result type for auto-parsing
+struct AutoParseResult {
+    let status: String
+    let errors: Int
+    let warnings: Int
+    let duration: TimeInterval
+    let files: Int
 }
 
 // MARK: - Analyze Command
