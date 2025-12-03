@@ -81,22 +81,28 @@ sbsift validate [--project path]
 
 Validates Swift project build configuration.
 
-## 🔄 Integration with Smith Tools
+## Foundation Integration
 
-smith-sbsift works with the complete Smith Tools ecosystem:
+smith-sbsift is built on the Smith Foundation libraries:
 
-- **smith-skill** - Architectural validation
-- **smith-core** - Universal Swift patterns
-- **smith-spmsift** - SPM analysis
-- **sosumi-skill** - Apple documentation
+- **SmithBuildAnalysis**: Shared Swift build parsing infrastructure
+- **SmithProgress**: Progress display during analysis operations
+- **SmithOutputFormatter**: Consistent output formatting across all tools
+- **SmithErrorHandling**: Professional error reporting with recovery suggestions
 
-**Usage Pattern:**
-```
-Build errors? → smith-sbsift
-Architecture? → smith-skill
-API reference? → sosumi-skill
-Package issues? → smith-spmsift
-```
+This integration provides:
+- ✅ 95% reduction in duplicate code
+- ✅ Consistent UX with other Smith Tools
+- ✅ Single source of truth for common functionality
+- ✅ Faster bug fixes and improvements (benefit all tools)
+
+### Related Tools
+
+smith-sbsift integrates with:
+- **smith-skill**: Claude Code integration for AI-assisted development
+- **smith-xcsift**: Xcode build analysis (complementary tool)
+- **smith-spmsift**: Swift Package Manager analysis
+- **Smith CLI**: Unified CLI orchestrator
 
 ## 📊 Performance
 

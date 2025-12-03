@@ -1,15 +1,6 @@
 {
-  "originHash" : "43cb84528255bc6c73971860ed82500c3addc37b9a2f1ac278f57fbcb985fdc0",
+  "originHash" : "7adeb9cdc0c22fb5313172eebe1f6f4f954e3f43871980a35a1f2119bb35f4e6",
   "pins" : [
-    {
-      "identity" : "smith-core",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Smith-Tools/smith-core",
-      "state" : {
-        "revision" : "c56717d6f57e2de169439ba9661f1e702af6b303",
-        "version" : "1.1.0"
-      }
-    },
     {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
